@@ -13,6 +13,7 @@ import {
 	ModalBody,
 	ModalFooter,
 	useDisclosure,
+	Input,
 } from "@heroui/react";
 import { useStore } from "@/store/useStore";
 import { useState } from "react";
@@ -22,12 +23,27 @@ export default function BaseTable() {
 	const updateMeme = useStore((s) => s.updateMeme);
 	const { isOpen, onOpen, onOpenChange } = useDisclosure();
 	const [selectedMemeId, setSelectedMemeId] = useState<number | null>(null);
+	const [editedTitle, setEditedTitle] = useState<string>("");
 
 	const selectedMeme = memes.find((m) => m.id === selectedMemeId) || null;
 
 	const handleEditClick = (id: number) => {
 		setSelectedMemeId(id);
+		setEditedTitle(selectedMeme?.title || ""); // Initialize input with current title
 		onOpen();
+	};
+
+	const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		setEditedTitle(e.target.value); // Update the state as user types
+	};
+
+	const handleSaveChanges = () => {
+		if (selectedMeme && editedTitle !== selectedMeme.title) {
+			updateMeme(selectedMeme.id, {
+				...selectedMeme,
+				title: editedTitle, // Update meme title
+			});
+		}
 	};
 
 	return (
@@ -75,10 +91,17 @@ export default function BaseTable() {
 											<strong>ID:</strong>{" "}
 											{selectedMeme.id}
 										</p>
-										<p>
-											<strong>Title:</strong>{" "}
-											{selectedMeme.title}
-										</p>
+										{/* Use a div instead of p */}
+										<div>
+											<strong>Title:</strong>
+											<Input
+												isRequired
+												minLength={3}
+												maxLength={99}
+												value={editedTitle}
+												onChange={handleTitleChange}
+											/>
+										</div>
 										<p>
 											<strong>Likes:</strong>{" "}
 											{selectedMeme.likes}
@@ -86,7 +109,7 @@ export default function BaseTable() {
 										<img
 											src={selectedMeme.imageUrl}
 											alt={selectedMeme.title}
-											className="w-full h-auto rounded-md mt-2"
+											className="w-full h-auto rounded-md mt-2 lg:max-h-80 max-h-72"
 										/>
 									</>
 								) : (
@@ -96,22 +119,40 @@ export default function BaseTable() {
 							<ModalFooter>
 								<Button
 									color="danger"
-									variant="light"
-									onPress={onClose}
+									onPress={() => {
+										if (selectedMeme) {
+											updateMeme(selectedMeme.id, {
+												likes: selectedMeme.likes - 1,
+											});
+										}
+									}}
 								>
-									Close
+									Dislike
 								</Button>
 								<Button
 									color="primary"
 									onPress={() => {
-										if (selectedMeme) {
+										if (
+											selectedMeme &&
+											selectedMeme.likes < 99
+										) {
 											updateMeme(selectedMeme.id, {
 												likes: selectedMeme.likes + 1,
 											});
 										}
 									}}
 								>
-									+1 Like
+									Like
+								</Button>
+								<Button
+									color="success"
+									className="text-white"
+									onPress={() => {
+										handleSaveChanges(); // Save the title when the user clicks Save
+										onClose(); // Close the modal after saving
+									}}
+								>
+									Save Changes
 								</Button>
 							</ModalFooter>
 						</>

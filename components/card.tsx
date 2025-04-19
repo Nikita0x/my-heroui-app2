@@ -13,7 +13,7 @@ interface MemeCardProps {
 
 const BaseCard = ({ meme }: MemeCardProps) => {
 	return (
-		<Card className="w-full max-w-xl mx-auto rounded-xl shadow-2xl overflow-hidden dark:bg-[#18181B] bg-[#F4F4F5] border border-slate-500 dark:border-none hover:shadow-indigo-500/20 transition-all duration-300 cursor-pointer">
+		<Card className="w-full max-w-xl mx-auto rounded-xl shadow-2xl overflow-hidden dark:bg-[#18181B] bg-[#F4F4F5] border dark:border-slate-900   hover:shadow-indigo-500/20 transition-all duration-300 cursor-pointer">
 			<CardHeader className="pb-2 pt-4 px-6 gap-5 justify-center">
 				<h4 className="text-xl font-bold dark:text-white text-black">
 					{meme.title}
