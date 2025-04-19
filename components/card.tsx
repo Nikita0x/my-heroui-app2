@@ -13,9 +13,11 @@ interface MemeCardProps {
 
 const BaseCard = ({ meme }: MemeCardProps) => {
 	return (
-		<Card className="w-full max-w-xl mx-auto rounded-xl shadow-2xl overflow-hidden bg-gradient-to-b from-slate-800 to-slate-900 border border-slate-700 hover:shadow-indigo-500/20 transition-all duration-300 cursor-pointer">
+		<Card className="w-full max-w-xl mx-auto rounded-xl shadow-2xl overflow-hidden dark:bg-[#18181B] bg-[#F4F4F5] border border-slate-500 dark:border-none hover:shadow-indigo-500/20 transition-all duration-300 cursor-pointer">
 			<CardHeader className="pb-2 pt-4 px-6 gap-5 justify-center">
-				<h4 className="text-xl font-bold text-white">{meme.title}</h4>
+				<h4 className="text-xl font-bold dark:text-white text-black">
+					{meme.title}
+				</h4>
 			</CardHeader>
 			<CardBody className="py-3 px-4">
 				<div className="relative overflow-hidden rounded-lg shadow-inner mx-auto">
@@ -28,7 +30,7 @@ const BaseCard = ({ meme }: MemeCardProps) => {
 					/>
 				</div>
 			</CardBody>
-			<CardFooter className="px-6 py-4 flex justify-between items-center border-t border-slate-700 text-white">
+			<CardFooter className="px-6 py-4 flex justify-between items-center border-t dark:border-slate-800 border-slate-200 dark:text-white text-black">
 				<div>likes: {meme.likes}</div>
 				<a
 					className="text-blue-500"

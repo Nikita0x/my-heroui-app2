@@ -14,17 +14,20 @@ import {
 	ModalFooter,
 	useDisclosure,
 } from "@heroui/react";
-import { useStore, Meme } from "@/store/useStore";
+import { useStore } from "@/store/useStore";
 import { useState } from "react";
 
 export default function BaseTable() {
-	const { memes, updateMeme } = useStore();
+	const memes = useStore((s) => s.memes);
+	const updateMeme = useStore((s) => s.updateMeme);
 	const { isOpen, onOpen, onOpenChange } = useDisclosure();
-	const [selectedMeme, setSelectedMeme] = useState<Meme | null>(null);
+	const [selectedMemeId, setSelectedMemeId] = useState<number | null>(null);
 
-	const handleEditClick = (meme: Meme) => {
-		setSelectedMeme(meme);
-		onOpen(); // open the modal
+	const selectedMeme = memes.find((m) => m.id === selectedMemeId) || null;
+
+	const handleEditClick = (id: number) => {
+		setSelectedMemeId(id);
+		onOpen();
 	};
 
 	return (
@@ -46,7 +49,9 @@ export default function BaseTable() {
 							<TableCell>{meme.title}</TableCell>
 							<TableCell>{meme.likes}</TableCell>
 							<TableCell>
-								<Button onClick={() => handleEditClick(meme)}>
+								<Button
+									onClick={() => handleEditClick(meme.id)}
+								>
 									Edit
 								</Button>
 							</TableCell>
@@ -104,7 +109,6 @@ export default function BaseTable() {
 												likes: selectedMeme.likes + 1,
 											});
 										}
-										onClose();
 									}}
 								>
 									+1 Like
