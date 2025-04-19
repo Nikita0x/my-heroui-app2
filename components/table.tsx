@@ -29,19 +29,19 @@ export default function BaseTable() {
 
 	const handleEditClick = (id: number) => {
 		setSelectedMemeId(id);
-		setEditedTitle(selectedMeme?.title || ""); // Initialize input with current title
+		setEditedTitle(selectedMeme?.title || "");
 		onOpen();
 	};
 
 	const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		setEditedTitle(e.target.value); // Update the state as user types
+		setEditedTitle(e.target.value);
 	};
 
 	const handleSaveChanges = () => {
 		if (selectedMeme && editedTitle !== selectedMeme.title) {
 			updateMeme(selectedMeme.id, {
 				...selectedMeme,
-				title: editedTitle, // Update meme title
+				title: editedTitle,
 			});
 		}
 	};
@@ -91,7 +91,7 @@ export default function BaseTable() {
 											<strong>ID:</strong>{" "}
 											{selectedMeme.id}
 										</p>
-										{/* Use a div instead of p */}
+
 										<div>
 											<strong>Title:</strong>
 											<Input
@@ -148,8 +148,8 @@ export default function BaseTable() {
 									color="success"
 									className="text-white"
 									onPress={() => {
-										handleSaveChanges(); // Save the title when the user clicks Save
-										onClose(); // Close the modal after saving
+										handleSaveChanges();
+										onClose();
 									}}
 								>
 									Save Changes
