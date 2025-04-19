@@ -11,63 +11,73 @@ export interface Meme {
 const memes: Meme[] = [
 	{
 		id: 1,
-		title: "Distracted Boyfriend",
-		imageUrl: "https://i.imgur.com/JbZ5C.jpg",
-		likes: 1,
+		title: "They lied to us",
+		imageUrl:
+			"https://pbs.twimg.com/media/GoXpD2lWQAAt7Nf?format=jpg&name=medium",
+		likes: 23,
 	},
 	{
 		id: 2,
-		title: "Woman Yelling at a Cat",
-		imageUrl: "https://i.imgur.com/5hYJZ.jpg",
-		likes: 37,
+		title: "fr fr",
+		imageUrl:
+			"https://pbs.twimg.com/media/Go1c536XoAAmYuJ?format=jpg&name=medium",
+		likes: 7,
 	},
 	{
 		id: 3,
-		title: "Drake Hotline Bling",
-		imageUrl: "https://i.imgur.com/ZB9yy.jpg",
-		likes: 58,
+		title: "classic",
+		imageUrl:
+			"https://pbs.twimg.com/media/Go1YFX1X0AAofnr?format=jpg&name=large",
+		likes: 76,
 	},
 	{
 		id: 4,
-		title: "Two Buttons",
-		imageUrl: "https://i.imgur.com/xTgHS.jpg",
-		likes: 21,
+		title: "chihuahua farmer",
+		imageUrl:
+			"https://pbs.twimg.com/media/Goz1-P_WUAE3-o_?format=jpg&name=large",
+		likes: 22,
 	},
 	{
 		id: 5,
-		title: "Change My Mind",
-		imageUrl: "https://i.imgur.com/b9VzC.jpg",
-		likes: 66,
+		title: "spongebob's whip",
+		imageUrl:
+			"https://pbs.twimg.com/media/Goz17XFXIAAo1JH?format=jpg&name=medium",
+		likes: 82,
 	},
 	{
 		id: 6,
-		title: "Mocking Spongebob",
-		imageUrl: "https://i.imgur.com/LbZKa.jpg",
-		likes: 11,
+		title: "true",
+		imageUrl:
+			"https://pbs.twimg.com/media/GoxfKP6WUAAHJjO?format=png&name=900x900",
+		likes: 18,
 	},
 	{
 		id: 7,
-		title: "Surprised Pikachu",
-		imageUrl: "https://i.imgur.com/M3NpF.jpg",
-		likes: 74,
+		title: "Rizzler",
+		imageUrl:
+			"https://pbs.twimg.com/media/GouR7OAXIAA9Knm?format=jpg&name=large",
+		likes: 84,
 	},
 	{
 		id: 8,
-		title: "Expanding Brain",
-		imageUrl: "https://i.imgur.com/j84aA.jpg",
-		likes: 25,
+		title: "MOB SWAWNER!",
+		imageUrl:
+			"https://pbs.twimg.com/media/GouR0lkXkAAklcX?format=jpg&name=900x900",
+		likes: 23,
 	},
 	{
 		id: 9,
-		title: "UNO Draw 25",
-		imageUrl: "https://i.imgur.com/s0FiQ.jpg",
-		likes: 39,
+		title: "True Story",
+		imageUrl:
+			"https://pbs.twimg.com/media/GopiS1LWUAAwycZ?format=jpg&name=medium",
+		likes: 55,
 	},
 	{
 		id: 10,
-		title: "This Is Fine",
-		imageUrl: "https://i.imgur.com/pDw6n.jpg",
-		likes: 88,
+		title: "hydrate",
+		imageUrl:
+			"https://pbs.twimg.com/media/GolfqsFWUAAcqCw?format=jpg&name=large",
+		likes: 48,
 	},
 ];
 

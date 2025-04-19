@@ -26,7 +26,7 @@ const BaseCard = ({ meme }: MemeCardProps) => {
 						src={meme.imageUrl}
 						width={300}
 						height={300}
-						className="object-cover w-full h-64 transform hover:scale-105 transition-transform duration-300"
+						className="object-fill w-full h-64 transform hover:scale-105 transition-transform duration-300"
 					/>
 				</div>
 			</CardBody>
