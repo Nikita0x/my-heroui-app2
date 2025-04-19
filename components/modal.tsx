@@ -14,7 +14,6 @@ export default function App() {
 
 	return (
 		<>
-			<Button onPress={onOpen}>Open Modal</Button>
 			<Modal
 				isOpen={isOpen}
 				onOpenChange={onOpenChange}

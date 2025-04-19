@@ -28,7 +28,7 @@ const BaseCard = ({ meme }: MemeCardProps) => {
 					/>
 				</div>
 			</CardBody>
-			<CardFooter className="px-6 py-4 flex justify-between items-center border-t border-slate-700">
+			<CardFooter className="px-6 py-4 flex justify-between items-center border-t border-slate-700 text-white">
 				<div>likes: {meme.likes}</div>
 				<a
 					className="text-blue-500"
